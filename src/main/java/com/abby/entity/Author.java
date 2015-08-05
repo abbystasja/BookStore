@@ -1,12 +1,16 @@
 package com.abby.entity;
 
 public class Author {
+    private int id;
     private String name;
     private String shorBiography;
     private int yearBorn;
     private String country;
 
-    public Author(String name, String shorBiography, int yearBorn, String country) {
+    public Author(){}
+
+    public Author(int id, String name, String shorBiography, int yearBorn, String country) {
+        this.id = id;
         this.name = name;
         this.shorBiography = shorBiography;
         this.yearBorn = yearBorn;
@@ -43,5 +47,13 @@ public class Author {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
