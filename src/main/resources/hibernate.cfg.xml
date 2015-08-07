@@ -17,5 +17,7 @@
         <property name="hibernate.show_sql">true</property>
 
         <mapping resource="com.abby.entity/Author.hbm.xml"></mapping>
+        <mapping class="com.abby.entity.User"/>
+
     </session-factory>
 </hibernate-configuration>

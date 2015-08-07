@@ -1,7 +1,17 @@
 package com.abby.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "author")
 public class Author {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "first_name")
     private String name;
     private String shorBiography;
     private int yearBorn;

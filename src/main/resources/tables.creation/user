@@ -1,0 +1,8 @@
+create table book_store_user(
+id int primary key not null,
+login varchar(255),
+password varchar(255)
+);
+
+CREATE SEQUENCE user_id_seq;
+ALTER TABLE book_store_user ALTER id  SET DEFAULT NEXTVAL('user_id_seq');
