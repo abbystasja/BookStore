@@ -1,7 +1,12 @@
 package com.abby.console_temp;
 
+import com.abby.entity.Book;
 import com.abby.entity.User;
 import com.abby.model.UserModel;
+import com.abby.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
 
 import java.util.Scanner;
 
@@ -10,18 +15,24 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws HibernateException {
         UserModel userModel = new UserModel();
+
         for (; ; ) {
             System.out.println("please enter your login and password");
             Scanner in = new Scanner(System.in);
 
+            User user = new User(in.nextLine(), in.nextLine());
 
-
-            boolean userExists = userModel.isUserInDataBase(new User(in.nextLine(), in.nextLine()));
+            boolean userExists = userModel.isUserInDataBase(user);
 
             if (userExists) {
                 System.out.println("Welcome");
+                System.out.println("Here are your books");
+                user = userModel.getUser(user);
+                for (Book book : user.getBooks()) {
+                    System.out.println(book);
+                }
                 break;
             } else {
                 System.out.println("Such user don't exists, maybe you want to register y/n");

@@ -1,0 +1,9 @@
+create table book(
+id int primary key not null,
+name varchar(255),
+year int,
+short_description varchar(255)
+);
+
+CREATE SEQUENCE book_id_seq;
+ALTER TABLE book ALTER id  SET DEFAULT NEXTVAL('book_id_seq');

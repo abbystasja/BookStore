@@ -15,9 +15,12 @@
         <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="hbm2ddl.auto">validate</property>
 
         <mapping resource="com.abby.entity/Author.hbm.xml"></mapping>
         <mapping class="com.abby.entity.User"/>
+        <mapping class="com.abby.entity.Book"/>
+
 
     </session-factory>
 </hibernate-configuration>
