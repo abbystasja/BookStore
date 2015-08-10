@@ -4,7 +4,6 @@ import com.abby.entity.Author;
 import com.abby.util.HibernateUtil;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorModel {
