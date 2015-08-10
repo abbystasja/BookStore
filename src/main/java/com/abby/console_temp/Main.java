@@ -24,7 +24,7 @@ public class Main {
 
             User user = new User(in.nextLine(), in.nextLine());
 
-            boolean userExists = userModel.isUserInDataBase(user);
+            boolean userExists = userModel.isUserInDataBase(user.getLogin(), user.getPassword());
 
             if (userExists) {
                 System.out.println("Welcome");
