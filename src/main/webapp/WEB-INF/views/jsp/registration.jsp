@@ -1,13 +1,12 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Registration Page</title>
     <link href="/resources/core/css/login.css" rel="stylesheet">
 </head>
 <body>
 
-
-<form:form method="POST" action="login" modelAttribute="user">
+<form method="POST" action="registration" modelAttribute="user">
     <fieldset class="account-info">
         <label>Login
             <input type="text" path="login"/>
@@ -15,15 +14,14 @@
         <label>Password
             <input type="password" path="password"/>
         </label>
-    </fieldset>
-    <fieldset class="account-action">
-        <input class="btn-left"  type="submit" name="login" value="Login">
-        <input class="btn-right" type="submit" name="register" value="Register">
-        <label>
-            <input type="checkbox" name="remember"> Stay signed in
+        <label>Re-type password
+            <input type="password" path="rePassword"/>
         </label>
     </fieldset>
+    <fieldset class="account-action">
+        <input class="btn-left" type="submit" name="registration" value="Register">
+    </fieldset>
 
-</form:form>
+</form>
 </body>
 </html>

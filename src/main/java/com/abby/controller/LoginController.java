@@ -1,21 +1,17 @@
 package com.abby.controller;
 
 import com.abby.entity.User;
+import com.abby.entity.UserRegistration;
 import com.abby.model.UserModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -33,7 +29,7 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", params = "login",  method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute("user") User user, BindingResult result) {
         UserModel userModel = new UserModel();
 
@@ -43,5 +39,23 @@ public class LoginController {
             return new ModelAndView("index");
         }
     }
+    @RequestMapping(value = "/login", params = "register", method = RequestMethod.GET)
+    public String index1(Map<String, Object> model) {
+        model.put("user", new UserRegistration());
+        return "registration";
+    }
+
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public ModelAndView login(@ModelAttribute("user") UserRegistration user, BindingResult result) {
+//        UserModel userModel = new UserModel();
+//
+//        if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
+//            return new ModelAndView("redirect:/authors");
+//        } else {
+        return new ModelAndView("index");
+//        }
+    }
+
 }
 
