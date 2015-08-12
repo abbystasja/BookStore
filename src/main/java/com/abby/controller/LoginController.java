@@ -1,6 +1,7 @@
 package com.abby.controller;
 
 import com.abby.entity.User;
+import com.abby.entity.UserRegistration;
 import com.abby.model.UserModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,7 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", params = "login",  method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute("user") User user, BindingResult result) {
         UserModel userModel = new UserModel();
 
@@ -37,5 +38,23 @@ public class LoginController {
             return new ModelAndView("index");
         }
     }
+    @RequestMapping(value = "/login", params = "register", method = RequestMethod.GET)
+    public String index1(Map<String, Object> model) {
+        model.put("user", new UserRegistration());
+        return "registration";
+    }
+
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public ModelAndView login(@ModelAttribute("user") UserRegistration user, BindingResult result) {
+//        UserModel userModel = new UserModel();
+//
+//        if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
+//            return new ModelAndView("redirect:/authors");
+//        } else {
+        return new ModelAndView("index");
+//        }
+    }
+
 }
 
