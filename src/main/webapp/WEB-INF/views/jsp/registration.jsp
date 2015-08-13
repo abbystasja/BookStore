@@ -8,7 +8,7 @@
 
 <form method="POST" action="registration" modelAttribute="user">
     <fieldset class="account-info">
-        <label>Login
+        <label>Registration
             <input type="text" path="login"/>
         </label>
         <label>Password

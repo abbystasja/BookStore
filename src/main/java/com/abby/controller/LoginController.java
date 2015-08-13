@@ -39,7 +39,7 @@ public class LoginController {
             return new ModelAndView("index");
         }
     }
-    @RequestMapping(value = "/login", params = "register", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", params = "register", method = RequestMethod.POST)
     public String index1(Map<String, Object> model) {
         model.put("user", new UserRegistration());
         return "registration";
@@ -47,7 +47,7 @@ public class LoginController {
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView login(@ModelAttribute("user") UserRegistration user, BindingResult result) {
+    public ModelAndView register(@ModelAttribute("user") UserRegistration user, BindingResult result) {
 //        UserModel userModel = new UserModel();
 //
 //        if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
