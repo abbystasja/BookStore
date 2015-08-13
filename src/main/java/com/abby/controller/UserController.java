@@ -18,9 +18,9 @@ import java.util.Map;
  * Created by akulygina on 8/3/2015.
  */
 @Controller
-public class LoginController {
+public class UserController {
 
-    private final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Map<String, Object> model) {

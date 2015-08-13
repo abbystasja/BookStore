@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Login Page</title>
-    <link href="<c:url value="/resources/core/css/table.css" />" rel="stylesheet">
 </head>
 <body>
 <h3>Hello World</h3>
