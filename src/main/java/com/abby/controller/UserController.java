@@ -28,7 +28,7 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", params = "login",  method = RequestMethod.POST)
+    @RequestMapping(value = "/login", params = "doLogin",  method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute("user") User user, BindingResult result) {
         UserModel userModel = new UserModel();
 
@@ -38,22 +38,19 @@ public class UserController {
             return new ModelAndView("index");
         }
     }
-    @RequestMapping(value = "/login", params = "register", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/login", params = "doRegister", method = RequestMethod.POST)
     public String index1(Map<String, Object> model) {
-        model.put("user", new UserRegistration());
+        model.put("user", new User());
         return "registration";
     }
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView register(@ModelAttribute("user") UserRegistration user, BindingResult result) {
-//        UserModel userModel = new UserModel();
-//
-//        if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
-//            return new ModelAndView("redirect:/authors");
-//        } else {
+    public ModelAndView register(@ModelAttribute("user") User user, BindingResult result) {
+        UserModel userModel = new UserModel();
+        userModel.addUser(user);
         return new ModelAndView("index");
-//        }
     }
 
 }
