@@ -5,7 +5,9 @@ import com.abby.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserModel {
 
     public UserModel() {

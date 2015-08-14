@@ -5,6 +5,7 @@ import com.abby.entity.UserRegistration;
 import com.abby.model.UserModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,9 @@ import java.util.Map;
 @Controller
 public class UserController {
 
+    @Autowired
+    UserModel userModel;
+
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -30,7 +34,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", params = "doLogin",  method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute("user") User user, BindingResult result) {
-        UserModel userModel = new UserModel();
+      //  UserModel userModel = new UserModel();
 
         if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
             return new ModelAndView("redirect:/authors");
@@ -48,7 +52,7 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView register(@ModelAttribute("user") User user, BindingResult result) {
-        UserModel userModel = new UserModel();
+        //UserModel userModel = new UserModel();
         userModel.addUser(user);
         return new ModelAndView("index");
     }

@@ -3,9 +3,11 @@ package com.abby.model;
 import com.abby.entity.Author;
 import com.abby.util.HibernateUtil;
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AuthorModel {
     private List<Author> authors;
 
