@@ -1,7 +1,6 @@
 package com.abby.controller;
 
 import com.abby.entity.User;
-import com.abby.entity.UserRegistration;
 import com.abby.model.UserModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +33,6 @@ public class UserController {
 
     @RequestMapping(value = "/login", params = "doLogin",  method = RequestMethod.POST)
     public ModelAndView login(@ModelAttribute("user") User user, BindingResult result) {
-      //  UserModel userModel = new UserModel();
 
         if (userModel.isUserInDataBase(user.getLogin(), user.getPassword())) {
             return new ModelAndView("redirect:/authors");

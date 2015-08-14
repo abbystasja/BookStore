@@ -1,5 +1,7 @@
 package com.abby.entity;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,8 +14,10 @@ public class User {
     @Column(name = "id")
     private int id;
     @Column(name = "login")
+    @NotNull
     private String login;
     @Column(name = "password")
+    @NotNull
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)
